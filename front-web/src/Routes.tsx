@@ -4,13 +4,16 @@ import Navbar from "./Navbar";
 import Orders from "./Orders";
 
 
+
+
 function Routes(){
     return (
         <BrowserRouter>
             <Navbar />
-            <Switch>
+            <Switch>              
+                
                 <Route path="/orders">
-                    <Orders />
+                <Orders /> 
                 </Route>
                 
                 <Route path="/">
