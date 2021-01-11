@@ -1,5 +1,4 @@
 import { formatPrice } from './helpers';
-import ProductsList from './ProductsList';
 import { Product } from './types';
 
 type Props = {
