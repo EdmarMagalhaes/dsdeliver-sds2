@@ -10,6 +10,8 @@ Projeto Desenvolvido durante a semana DevSuperior, O projeto consiste em um sist
 (https://devsuperior.com "Site da DevSuperior").
 ## Layout mobile
 ![Mobile 1](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobileCapa.jpg) ![Mobile 2](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobileConfirma.jpg)
+![Mobile 3](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobileNavegação.jpg) ![Mobile 4](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobilePedConfirm.jpg)
+![Mobile 5](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobilePedidos.jpg)
 
 ## Layout web
 ![Web 1](https://)
