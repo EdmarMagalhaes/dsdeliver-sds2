@@ -14,9 +14,13 @@ Projeto Desenvolvido durante a semana DevSuperior, O projeto consiste em um sist
 ![Mobile 5](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppMobilePedConfirm.jpg)
 
 ## Layout web
-![Web 1](https://)
+![Web 1](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppWebCapa.jpg)
 
-![Web 2](https://)
+![Web 2](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppWebOrderMake.jpg)
+
+![Web 3](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppWebOrderSend.jpg)
+
+![Web 4](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/AppWebOrders.jpg)
 
 ## Modelo conceitual
 ![Modelo Conceitual](https://)
