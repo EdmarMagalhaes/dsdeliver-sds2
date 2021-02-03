@@ -25,6 +25,10 @@ Projeto Desenvolvido durante a semana DevSuperior, O projeto consiste em um sist
 ## Modelo conceitual
 ![Modelo Conceitual](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/modelo-conceitual.png)
 
+## Padrão camadas adotado
+![Padrão Camadas](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/modelo-conceitual.png)
+
+## Padrão camadas adotado
 # Tecnologias utilizadas
 ## Back end
 - Java
