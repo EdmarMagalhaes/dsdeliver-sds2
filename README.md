@@ -28,7 +28,6 @@ Projeto Desenvolvido durante a semana DevSuperior, O projeto consiste em um sist
 ## Padrão camadas adotado
 ![Padrão Camadas](https://github.com/EdmarMagalhaes/dsdeliver-sds2/blob/main/assets/camadas.png)
 
-## Padrão camadas adotado
 # Tecnologias utilizadas
 ## Back end
 - Java
@@ -39,7 +38,6 @@ Projeto Desenvolvido durante a semana DevSuperior, O projeto consiste em um sist
 - HTML / CSS / JS / TypeScript
 - ReactJS
 - React Native
-- Apex Charts
 - Expo
 ## Implantação em produção
 - Back end: Heroku
@@ -53,7 +51,7 @@ Pré-requisitos: Java 11
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/EdmarMagalhaes/dsdeliver-sds2
 
 # entrar na pasta do projeto back end
 cd backend
@@ -67,7 +65,7 @@ Pré-requisitos: npm / yarn
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/EdmarMagalhaes/dsdeliver-sds2
 
 # entrar na pasta do projeto front end web
 cd front-web
