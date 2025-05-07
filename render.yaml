@@ -1,15 +1,10 @@
 services:
   - type: web
     name: dsdeliver-backend
-    env: java
     plan: free
-    preBuildCommand: chmod +x Backend/mvnw
-    buildCommand: cd Backend && ./mvnw clean package -DskipTests
+    preBuildCommand: sudo apt-get update && sudo apt-get install -y openjdk-17-jdk && chmod +x Backend/mvnw
+    buildCommand: cd Backend && bash ./mvnw clean package -DskipTests
     startCommand: java -jar Backend/target/dsdeliver-0.0.1-SNAPSHOT.jar
     envVars:
       - key: DATABASE_URL
         value: jdbc:postgresql://dsdeliver_owner:npg_mkMDrCUH5JK1@ep-fancy-pine-acrmni8x-pooler.sa-east-1.aws.neon.tech:5432/dsdeliver?sslmode=require
-      - key: JAVA_VERSION
-        value: 17
-      - key: JAVA_HOME
-        value: /opt/render/project/.render-java/openjdk-17
