@@ -3,8 +3,8 @@ services:
     name: dsdeliver-backend
     env: java
     plan: free
-    buildCommand: cd backend && ./mvnw clean package -DskipTests
-    startCommand: java -jar backend/target/dsdeliver-0.0.1-SNAPSHOT.jar
+    buildCommand: chmod +x Backend/mvnw && cd Backend && ./mvnw clean package -DskipTests
+    startCommand: java -jar Backend/target/dsdeliver-0.0.1-SNAPSHOT.jar
     envVars:
       - key: DATABASE_URL
         value: jdbc:postgresql://dsdeliver_owner:npg_mkMDrCUH5JK1@ep-fancy-pine-acrmni8x-pooler.sa-east-1.aws.neon.tech:5432/dsdeliver?sslmode=require
