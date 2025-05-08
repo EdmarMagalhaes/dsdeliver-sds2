@@ -24,3 +24,7 @@ Dockerfile
 
 # Antigo render.yaml — não precisa mais
 render.yaml
+Backend/.m2
+Backend/.settings
+Backend/target
+
