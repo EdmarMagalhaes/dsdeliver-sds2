@@ -147,7 +147,7 @@ if [ -z "$JAVACMD" ] ; then
   else
     JAVACMD="`which java`"
   fi
-fi
+fiS
 
 if [ ! -x "$JAVACMD" ] ; then
   echo "Error: JAVA_HOME is not defined correctly." >&2
