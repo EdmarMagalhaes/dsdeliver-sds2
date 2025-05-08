@@ -1,33 +1,29 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Ignorar frontend
+front-web/
+front-mobile/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Ignorar pastas ocultas e arquivos de build
+.git/
+.gitignore
+node_modules/
+dist/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Cache e configurações do Maven/IDE
+Backend/.mvn/maven.config
+Backend/.mvn/.*
+Backend/.m2
+Backend/.settings
+Backend/target
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
 
-### VS Code ###
-.vscode/
+# Logs e temporários
+*.log
+*.tmp
+*.swp
+
+# Outros arquivos
+render.yaml
+Dockerfile
