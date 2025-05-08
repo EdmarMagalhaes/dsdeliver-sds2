@@ -1,0 +1,26 @@
+# Ignorar tudo que não é o Backend
+
+# Pastas do frontend
+front-web/
+front-mobile/
+
+# Git e build
+.git/
+.gitignore
+node_modules/
+dist/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Outros arquivos ocultos e temporários
+*.log
+*.tmp
+*.swp
+
+# Dockerfile (não precisa copiar dentro do próprio build, já é usado)
+Dockerfile
+
+# Antigo render.yaml — não precisa mais
+render.yaml
