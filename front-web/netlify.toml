@@ -1,4 +1,8 @@
 [build]
-  base    = "front-web"
+  base = "front-web"
   publish = "front-web/build"
   command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "16.20.2"
+
