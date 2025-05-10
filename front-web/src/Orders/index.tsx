@@ -8,12 +8,14 @@ import OrderSummary from './OrderSummary';
 import ProductsList from './ProductsList';
 import StepsHeader from './StepsHeader';
 import { OrderLocationData, Product } from './types';
+import { Hourglass } from 'react-loader-spinner';
 import './styles.css';
 
 function Orders() {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
+  const [isLoading, setIsLoading] = useState(true);
 
   const totalPrice = selectedProducts.reduce((sum, item) => {
     return sum + item.price;
@@ -22,7 +24,8 @@ function Orders() {
   useEffect(() => {
     fetchProducts()
       .then(response => setProducts(response.data))
-      .catch(() => toast.error('❌ Erro ao listar produtos!'));
+      .catch(() => toast.error('❌ Erro ao listar produtos!'))
+      .finally(() => setIsLoading(false));
   }, []);
 
   const handleSelectProduct = (product: Product) => {
@@ -72,11 +75,25 @@ function Orders() {
     <>
       <div className="orders-container">
         <StepsHeader />
-        <ProductsList
-          products={products}
-          onSelectProduct={handleSelectProduct}
-          selectedProducts={selectedProducts}
-        />
+
+        {isLoading ? (
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+            <Hourglass
+              visible={true}
+              height="60"
+              width="60"
+              ariaLabel="hourglass-loading"
+              colors={['#3f51b5', '#1976d2']}
+            />
+          </div>
+        ) : (
+          <ProductsList
+            products={products}
+            onSelectProduct={handleSelectProduct}
+            selectedProducts={selectedProducts}
+          />
+        )}
+
         <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
         <OrderSummary
           amount={selectedProducts.length}
