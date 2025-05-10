@@ -1,4 +1,4 @@
-import { chechIsSelected } from "./helpers";
+import { checkIsSelected } from "./helpers";
 import ProductCard from "./ProductCard";
 import { Product } from "./types";
 
@@ -18,7 +18,7 @@ function ProductsList({ products, selectedProducts, onSelectProduct}: Props) {
           key={product.id} 
           product={product}
           onSelectProduct={onSelectProduct}
-          isSelected={chechIsSelected(selectedProducts, product)}
+          isSelected={checkIsSelected(selectedProducts, product)}
           />
 
           ))}

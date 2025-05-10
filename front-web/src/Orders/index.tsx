@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { fetchProducts, saveOrder } from '../api';
 import Footer from '../Footer';
-import { chechIsSelected } from './helpers';
+import { checkIsSelected } from './helpers';
 import OrderLocation from './OrderLocation';
 import OrderSummary from './OrderSummary';
 import ProductsList from './ProductsList';
@@ -14,65 +14,79 @@ function Orders() {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [orderLocation, setOrderLocation] = useState<OrderLocationData>();
+
   const totalPrice = selectedProducts.reduce((sum, item) => {
-      return sum + item.price;
+    return sum + item.price;
   }, 0);
- 
+
   useEffect(() => {
     fetchProducts()
-    .then(Response => setProducts(Response.data))
-    .catch(error => toast.warning('Erro ao listar produtos!'));
+      .then(response => setProducts(response.data))
+      .catch(() => toast.error('❌ Erro ao listar produtos!'));
+  }, []);
 
-}, []);
+  const handleSelectProduct = (product: Product) => {
+    const isAlreadySelected = checkIsSelected(selectedProducts, product);
 
-  
-const handleSelectProduct = (product: Product) => {
-  const isAlreadySelected = chechIsSelected(selectedProducts, product);
+    if (isAlreadySelected) {
+      const selected = selectedProducts.filter(item => item.id !== product.id);
+      setSelectedProducts(selected);
+    } else {
+      setSelectedProducts(previous => [...previous, product]);
+    }
+  };
 
-  if (isAlreadySelected) {
-    const selected = selectedProducts.filter(item => item.id !== product.id);
-    setSelectedProducts(selected);
-  } else {
-    setSelectedProducts(previous => [...previous, product]);
-  }
-}
-const handleSubmit = () => {
-  const productsIds = selectedProducts.map(({ id }) => ({ id }));
-  const payload = {
-    ...orderLocation!,
-    products: productsIds
-  }
+  const handleSubmit = () => {
+    if (selectedProducts.length === 0) {
+      toast.warning('⚠️ Selecione pelo menos um produto antes de enviar o pedido!');
+      return;
+    }
 
-  saveOrder(payload)
-  .then((response) => {
-    toast.error(`Pedido enviado com sucesso! Nº ${response.data.id}`);
-    setSelectedProducts([]);
-  })
-    .catch(() => {
-      toast.warning('Erro ao enviar pedido');
-    })
+    if (!orderLocation) {
+      toast.warning('📍 Informe o local de entrega antes de enviar o pedido!');
+      return;
+    }
+
+    const productIds = selectedProducts.map(({ id }) => ({ id }));
+    const payload = {
+      ...orderLocation,
+      products: productIds
+    };
+
+    saveOrder(payload)
+      .then((response) => {
+        console.log("📦 Pedido enviado:", response);
+        if (response.data?.id) {
+          toast.success(`✅ Pedido enviado com sucesso! Nº ${response.data.id}`);
+          setSelectedProducts([]);
+        } else {
+          toast.error("⚠️ Pedido enviado, mas resposta inesperada do servidor.");
         }
-    return(
-      <>
+      })
+      .catch(() => {
+        toast.error('❌ Erro ao enviar pedido');
+      });
+  };
+
+  return (
+    <>
       <div className="orders-container">
         <StepsHeader />
-        <ProductsList  
-        products={products}
-        onSelectProduct={handleSelectProduct}
-        selectedProducts={selectedProducts}
+        <ProductsList
+          products={products}
+          onSelectProduct={handleSelectProduct}
+          selectedProducts={selectedProducts}
         />
-        <OrderLocation 
-        onChangeLocation={location => setOrderLocation(location)} 
-        />
-        <OrderSummary 
-        amount={selectedProducts.length} 
-        totalPrice={totalPrice} 
-        onSubmit={handleSubmit}
+        <OrderLocation onChangeLocation={location => setOrderLocation(location)} />
+        <OrderSummary
+          amount={selectedProducts.length}
+          totalPrice={totalPrice}
+          onSubmit={handleSubmit}
         />
       </div>
       <Footer />
-      </>   )
-  
+    </>
+  );
 }
-  
-  export default Orders;
+
+export default Orders;
