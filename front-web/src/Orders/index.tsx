@@ -45,11 +45,15 @@ function Orders() {
       return;
     }
 
-    if (!orderLocation) {
-      toast.warning('📍 Informe o local de entrega antes de enviar o pedido!');
+    if (
+      !orderLocation ||
+      !orderLocation.latitude ||
+      !orderLocation.longitude ||
+      !orderLocation.address
+    ) {
+      toast.warning('📍 Informe um endereço de entrega válido antes de enviar o pedido!');
       return;
     }
-
     const productIds = selectedProducts.map(({ id }) => ({ id }));
     const payload = {
       ...orderLocation,
@@ -58,8 +62,7 @@ function Orders() {
 
     saveOrder(payload)
       .then((response) => {
-        console.log("📦 Pedido enviado:", response);
-        if (response.data?.id) {
+         if (response.data?.id) {
           toast.success(`✅ Pedido enviado com sucesso! Nº ${response.data.id}`);
           setSelectedProducts([]);
         } else {

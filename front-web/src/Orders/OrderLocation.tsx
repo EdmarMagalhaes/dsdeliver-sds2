@@ -28,10 +28,6 @@ function OrderLocation({ onChangeLocation }: Props) {
   const [position, setPosition] = useState(defaultPosition);
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
-  // ✅ Mostra a chave no console (apenas para debug local)
-  console.log('🔑 CHAVE CRA:', process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-
-
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY!,
